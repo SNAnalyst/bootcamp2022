@@ -1,3 +1,2 @@
-# bootcamp2022
-
-Companion package for the statistics bootcamp 2022
+# Bootcamp_2021
+Support package for the Stats Bootcamp 2021-2022
