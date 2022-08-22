@@ -1,5 +1,5 @@
 ---
-title: "Day 04 -- Generalizd Linear Models"
+title: "Day 03 -- Generalizd Linear Models"
 description: "Moving forward after OLS"
 output: 
   learnr::tutorial:
@@ -28,29 +28,27 @@ source("../R/helper_code.R")
 
 # Check whether required packages are installed
 pkgs <- matrix(c(
-  "learnr", "0.10.0", "CRAN",
-  "gradethis", "0.2.3.9001", "rstudio/gradethis",
-  "outliertree", "1.7.4", "CRAN"
+  "learnr", "0.10.5", "CRAN",
+  "gradethis", "0.2.8.9000", "rstudio/gradethis",
+  "outliertree", "1.8.1-1", "CRAN"
 ), byrow = TRUE, ncol = 3) |> 
   as.data.frame() |> 
   setNames(c("pkg", "version", "where"))
 
 check_pkgs <- function(.pkgs = pkgs) {
-  bootcamp2021:::check_packages(.pkgs)
-}
-
-# RStudio, at least 4.1717
-check_RStudio <- function(x = 4.1717) {
-  bootcamp2021:::check_rstudio(x)
+  bootcamp:::check_packages(.pkgs)
 }
 
 
-# R check version (required 4.1.1)
-check_R <- function(x) {
-  bootcamp2021:::check_r_equal(4, 1.1)
+check_RStudio <- function() {
+  bootcamp::check_rstudio_equal_or_larger("2022.07.1", verdict = TRUE)
 }
+
+check_R <- function() {
+  bootcamp::check_r_equal_or_larger("4.2.1", verdict = TRUE)
+}
+
 ```
-
 
 ```{css, echo = FALSE}
 .tip {
@@ -103,7 +101,7 @@ Hello everyone!
 
 Welcome to the tutorial about fitting generalized linear models in `r rproj()`. 
 
-You are on the 4th day of Bootcamp by now and might start to feel very tired. Come on! Push it just a little harder, and you will be (statistically) fit as never before! ^_^
+You are on the 3rd day of Bootcamp by now, and you might start to feel a bit tired. Come on! Push it just a little harder, and you will be (statistically) fit as never before! ^_^
 
 <br>
 <br>
@@ -113,13 +111,12 @@ You are on the 4th day of Bootcamp by now and might start to feel very tired. Co
 
 ## Checking installation
 
-Before we run these tutorials, we first quickly 
-make sure you have all of the required packages installed 
-for this tutorial.
+Before we move on with this tutorial, we first quickly 
+make sure you have all of the required packages installed.
 
 ### R Version 
 
-You need to have installed R version 4.1.1 and this tutorial is going to check it
+You need to have installed a recent R version and this tutorial is going to check it
 for you. Please hit the `Run Code` button.
 
 ```{r r_check, echo = TRUE, include = TRUE, exercise = TRUE}
@@ -129,7 +126,7 @@ check_R()
 
 ### R Studio Version
 
-You need to have installed RStudio version 1.4.1717 or above.
+You also need to have installed a recent RStudio version.
 Let's check by clicking `Run Code`:
 
 ```{r rstudio_check, echo = TRUE, include = TRUE, exercise = TRUE}
@@ -161,7 +158,7 @@ Also, OLS should have an error that is normally distributed around a mean of 0. 
 
 These two problems occur since the relationship between the outcome variable and the predictors is not linear unless the outcome variable is numeric. 
 
-For these reasons, we need to use some mathemagic to bring back in line those categorical, ordinal, count, or dichotomous variables that lost the straight way (^_^)!
+For these reasons, we need to use some 'mathemagic' to bring back in line those categorical, ordinal, count, or dichotomous variables that lost the straight way (^_^)!
 
 The OLS definition is
 
@@ -173,7 +170,7 @@ This definition is specifically looking at the effects that we cannot have anymo
 - normal distribution
 - prediction of an average value \mu
 
-Suppose we substitute those two parts with a mathemagical spell that turns various functions shapes into linear and predicts a value compatible with the situation. In that case, we can expand this linear prediction to the universe and beyond! 
+Suppose we substitute those two parts with a 'mathemagical spell' that turns various functions shapes into linear and predicts a value compatible with the situation. In that case, we can expand this linear prediction to the universe and beyond! 
 
 Hence we generalize the definition as
 
@@ -182,6 +179,8 @@ Hence we generalize the definition as
  $\eta_i = X\beta$
 
 Here, we don't look at a normal distribution, but we look at the distribution $D$ that would work for us considering the features of the outcome variables. This distribution is connected to a function $f(\eta_i)$ that links the distribution of the outcome variable to the predictors in a linear way. In fact, this is the link function that you can consider as a sort of Google Translate since it puts these two different parts of the story in rapid communication. 
+
+![](images/Google-Translate.jpg)
 
 <br>
 
@@ -196,9 +195,8 @@ Of course, it doesn't necessarily mean that we will find a correlation, but at l
 Obviously, we can also run an OLS with the Generalized linear model setup. 
 
 
-```{r quiz_glm_NormalDistr, echo = FALSE}
-quiz(
-  question("Can  you tell me which distribution we should use to run a model with a numeric dependent variable? ",
+```{r quiz_glm_NormalDistr}
+quiz(question("Can  you tell me which distribution we should use to run a model with a numeric dependent variable?",
     answer("Binomial"),
     answer("Normal/Gaussian", correct = TRUE),
     answer("Normal"),
@@ -212,9 +210,9 @@ quiz(
 
 ## Specifying a GLM in R
 
-While you can run an OLS using the `lm()`, you need to use the `glm()` function to run the generalized version. Both functions are from the `stats` package, which is part of the `r rproj()` base language. For you, this means that you don't need to call the function with `stats::glm()`. However, if you do call it that way, it will also run without any issue.
+While you can run an OLS using the `lm()` function, you need to use the `glm()` function to run the generalized version. Both functions are from the `stats` package, which is part of the `r rproj()` base language. For you, this means that you don't need to call the function with `stats::glm()`. However, if you do call it that way, it will also run without any issue.
 
-The model is specified similarly at the `lm()` one, but few differences. Let's work with this example:
+The model is specified similarly to the `lm()` one, but with few differences. Let's work with this example:
 
 ```{r tut04_demodata01, echo= FALSE, include = FALSE}
 # Create toy data 
@@ -271,9 +269,9 @@ In GLMs, if you don't know what kind of outcome variable you are using, you cann
 
 4. You use the same functions to visualize results. In this case, `summary()`, but there are others. For instance `jtools::summ` and `texreg::screenreg`. Each of them has pros and cons, and it is up to you to choose your favorite as long as it displays the info you need.
 
-Also, even if this model is the same as an OLS, you have a different output in the summary of results. For example, can you see that the R-square is not provided? You can still calculate it if you want to, but the `glm` class of models is not provided. 
+Also, even if this model is the same as an OLS, you have a different output in the summary of results. For example, can you see that the R-square is not provided? You can still calculate it if you want to, but in the `glm` class of models is not provided by default. 
 
-The `glm` is also uses a different algorithm than the `lm`. While the OLS uses an algorithm that computes the line that minimizes the distance between the observed points (least square method), the GLM solves the problem using Maximum Likelihood Estimation (LME).
+The `glm` also uses a different algorithm than the `lm`. While the OLS uses an algorithm that computes the line that minimizes the distance between the observed points (least square method), the GLM solves the problem using Maximum Likelihood Estimation (LME).
 We don't have the time to  go into the details of the algorithm here, but you can check [Wikipedia](https://en.wikipedia.org/wiki/Maximum_likelihood_estimation)
 to get an idea, if you want to know more. 
 
@@ -283,7 +281,7 @@ to get an idea, if you want to know more.
 
 Since there are several GL models, we will focus on a specific one to get into the details: the logistic regressions. This is the GLM you use with a dummy outcome variable (I can guarantee it is not stupid even if it is a dummy!). 
 
-The other GLMs will require some different specifications, but you are ready for the real fight if you can nail the logistic regression!
+The other GLMs will require some different specifications, but if you can nail the logistic regression, you are ready for the real fight!
 
 We define a logistic regression as
 
@@ -312,7 +310,7 @@ Obviously, if we estimate a logistic model, the predicted values are defined as:
 
 $Integers: \{0, 1 \}$
 
-What would be the meaning of a model that predicts the odds of having a baby girl or a baby boy and provides a prediction of 3.5? It must be either 1 or 2. 
+What would be the meaning of a model that predicts the odds of having a baby girl or a baby boy and provides a prediction of, for instance, 3.5? It must be either 1 or 2. 
 
 When we use statistical models, we are referring to the understanding 
 of the reason why we observe something, rather than the observation
@@ -337,7 +335,7 @@ mmm, maybe I don't feed him enough...
 My dog is fine, and he barks like crazy for fun
 
 He might be barking for many reasons other than being hungry such as that he wants to go for a walk (the phenomenon is more complex), but there is a certain probability or (odds) associated with your hypothesis being correct. 
-This hypothesis can be numerically tested by measuring how many days in a month your dog barks like crazy (outcome variable), and how much food he gets every day (explanatory variable). If you don't find any association between these two variables, well, your dog is barking for fun, and we cannot reject the null hypothesis!
+This hypothesis can be numerically tested by measuring how many days in a month your dog barks like crazy (outcome variable with N days where the dog YES barks, NO does't), and how much food he gets every day (explanatory variable). If you don't find any association between these two variables, well, your dog is barking for fun, and we cannot reject the null hypothesis!
 
 This is the hypothesis testing mindset! oh... and please, if you have 
 a pet, feed her/him even if s/he is annoying!!
@@ -385,6 +383,8 @@ summary(DSjob_market)
 
 
 ```
+
+
 We have four variables:
 
 * DS_job: whether our respondents get or don't get a job in data science (dummy)
@@ -392,7 +392,7 @@ We have four variables:
 * anxiety: how much our respondents are worried about not getting a data science job (categorical)
 * age: age of respondents (numeric, continuous)
 
-Still, we don't know anything about the categories of anxiety. Let's explore it further.
+Still, we don't know anything about the categories of anxiety. Let's explore it further by printing a frequency distribution.
 
 
 ```{r tut04_0301, echo=TRUE, exercise = TRUE, exercise.setup = "tut04_DSjob_market"}
@@ -419,7 +419,12 @@ Focusing on the three main pieces of information we have, we could specify sever
 * 2. Does getting a job in data science and anxiety predict data science skills?
 * 3. Does the level of anxiety and the data science skills predict the probability of getting a job in data science?
 
-Even if the data and our great mathematical and statistical skills allow us to fit three models to address these three research questions, it is not necessarily a good idea to do it. First, it would be called 'fishing' into the data since you try every combination until you fish something meaningful. Second, questions 1 and 2 sound a little detached from reality. Why do data science skills make someone anxious (1)? Why should an anxious person be good at data science (2)? Unless we see other evidence, these make no sense. Hence, once more: Your statistical analysis needs to be theoretically driven rather than data driven. 
+Even if the data and our great mathematical and statistical skills allow us to fit three models to address these three research questions, it is not necessarily a good idea to do it. 
+
+First, it would be called 'fishing' into the data since you try every combination until you fish something meaningful. 
+
+Second, questions 1 and 2 sound a little detached from reality. Why do data science skills make someone anxious (1)? Why should an anxious person be good at data science (2)? Unless we see other evidence, these make no sense. 
+### Hence, once more: Your statistical analysis needs to be theoretically driven rather than data driven. 
 
 You need to use your theoretical knowledge to support your question with evidence, and you need to persuade your audience that your question makes sense. You also need to provide an attempted answer to your question, informed by the literature you read on the topic. That's a hypothesis. 
 
@@ -433,7 +438,7 @@ H1, obviously expects to find effects, and it is the opposite of a null hypothes
 
 * H0 The level of anxiety and the level of data science skills are not correlated to getting a job in data science.
 
-H1 is a two-tailed hypothesis since we do not state whether more anxiety and more numeracy lead to more success or the other way around (one-tailed options). We are open to both positive and negative correlations.
+H1 is a two-tailed hypothesis since we do not state whether more anxiety and more data science skills lead to more success or the other way around (one-tailed options). We are open to both positive and negative correlations.
 
 Ok, what do we do now? We explored the data (well, we should do way more than that, but let's assume we did), formulated hypotheses, decided on our outcome variable and predictors, and included a control variable. 
 
@@ -448,6 +453,11 @@ We are not ready at all!!!! We need to prepare the variables first.
 In order to get the data ready for the model, we need to make sure they are assigned to the correct class. 
 
 Hence, we will check the class and, if it isn't the right one, we will change it. 
+
+You can check the class with the function `class()` to see whether your variable is numeric, categorical, ordinal etc. 
+
+If you need to check the frequences, you can use the function `table()`. 
+If you need to change class, you can use a set of function like `as.numeric()` or `as.categorical()` to change the class of your variable.
 
 Can you make sure that 
 
@@ -580,7 +590,7 @@ Different from OLS
 - Model Goodness of fit (GOF)
 - Coefficients interpretation
 
-We will not talk again about the p-value and the sign of the coefficient since you already did that in Bootcamp-Day 1. We will focus on the remaining 3, starting with comparing the models to select the best one.
+We will not talk again about the p-value and the sign of the coefficient since you already did that in Bootcamp-Day 1 and 2. We will focus on the remaining 3, starting with comparing the models to select the best one.
 
 ### Model Comparison
 
@@ -619,8 +629,7 @@ texreg::screenreg(list(JobModel1, JobModel2, JobModel3))
 
 
 
-First of all, note that having our results next to each other helps get an overview of our nested models. Model comparison is really 
-important, since our goal is to understand which combination of explanatory variables predicts our outcome variable more accurately. 
+First of all, note that having our results next to each other helps getting an overview of our nested models. Model comparison is really important, since our goal is to understand which combination of explanatory variables predicts our outcome variable more accurately. 
 
 To compare the models, we have two indicators:
 
@@ -630,7 +639,7 @@ To compare the models, we have two indicators:
 In both cases, the lowest, the better. 
 
 
-Model one is the best since it has the lowest scores both for AIC and BIC. Model two is slightly better than model three according to both indicators. Both models two and three don't seem to be great since they perform less well than model one. It means that the two variables that we added are not improving the model fit. In practice that data science skills is a much better explanatory variable than anxiety and sex. It does make sense. Still, let's go with model 2 since we still want to know what happens with anxiety. 
+Model one is the best since it has the lowest scores both for AIC and BIC. Model two is slightly better than model three according to both indicators. Both models two and three don't seem to be great since they perform less well than model one. It means that the two variables that we added are not improving the model fit. In practice that data science skills is a much better explanatory variable than anxiety and age. It does make sense. Still, let's interpret results for model 2 since we still want to know what happens with anxiety and model 1 is not informing us about it. AKA, best fit is not the only important thing to consider!
 
 ### Goodness of Fit (GoF)
 
@@ -684,7 +693,7 @@ The function `fitted()` will get us the values that are already transformed.
 JUST LIKE THAT
 
 
-```{r tut04_090, include = FALSE, exercise.setup = "logit_Models", exercise=TRUE}
+```{r tut04_090, echo=TRUE, exercise.setup = "logit_Models", exercise=TRUE}
 
 fitted(JobModel2)
 
@@ -717,7 +726,7 @@ Now let's extract the residuals, should we? They will also be in the log scale; 
 The first is in the log scale; the second is not!
 
 
-```{r tut04_0110, include = FALSE, exercise.setup = "logit_Models", exercise=TRUE}
+```{r tut04_0110, echo=TRUE, exercise.setup = "logit_Models", exercise=TRUE}
 
 residuals(JobModel2)
 
@@ -731,9 +740,9 @@ has a good fit or not? We do a binned plot!
 
 
 
-```{r tut04_0120, include = FALSE, exercise.setup = "logit_Models", exercise=TRUE}
-bootcamp2021::binnedplot(fitted(JobModel3), 
-           residuals(JobModel3, type = "response"), 
+```{r tut04_0120, echo=TRUE, exercise.setup = "logit_Models", exercise=TRUE}
+bootcamp2021::binnedplot(fitted(JobModel2), 
+           residuals(JobModel2, type = "response"), 
            nclass = NULL, 
            xlab = "Expected Values", 
            ylab = "Average residual", 
@@ -829,7 +838,7 @@ Even if it is more common to formulate a hypothesis that only looks for effects 
 
 Let's make sure you understand what we are doing here.
 
-I'm giving you a play box here. Here you can run the code to answer the questions.
+I'm giving you a play box here. Can run the code to answer the questions.
 Would you please answer them for me? ^_^
 
 ```{r playbox, exercise = TRUE, exercise.setup = "logit_Models"}
@@ -843,7 +852,7 @@ Would you please answer them for me? ^_^
 
 ```{r quiz_coefOdds, echo = FALSE}
 quiz(
-  question("What are the log odds and the odds of anxity low? tip: change the reference cat",
+  question("What are the log odds and the odds of anxity low? tip: change the reference category",
     answer("2.55 - 12.78", correct = TRUE),
     answer("0.77 - 2.16"),
     answer("1.41 - 4.1"),
@@ -858,7 +867,7 @@ One more
 
 ```{r quiz_coefOddsInt, echo = FALSE}
 quiz(
-  question("What does the odds ratio for low anxiety mean? tip: change the reference cat",
+  question("What does the odds ratio for low anxiety mean? tip: change the reference category",
     answer("Having high anxiety, decreases the
     log odds and it makes the odds of getting a job in data science odds times 
     smaller than the for the people with low anxiety (the reference category)."),
@@ -922,7 +931,7 @@ DSjob_marketAltU$anxiety <- ifelse(DSjob_marketAltU$anxiety <= 12, "low",
 
 Your data set is called "DSjob_marketAltU". 
 
-1a) Can you run the same three models and before? 
+1a) Can you run the same three models as before? 
 
 1b) Can you make a binned plot with model one (call it "AltUJobModel1" )
 
@@ -976,8 +985,9 @@ gradethis::grade_code(correct = "Great job! ")
 You have a data set that contains data about citizens, their political interest and how much they engage with media during election time.
 
 ```{r homeplaydata, include=FALSE}
-MediaElecData <- bootcamp2021::MediaElecData
+MediaElecData <- bootcamp::MediaElectionData
 ```
+
 
 
 Let' take a look at the variables
@@ -1022,7 +1032,7 @@ i) conclude by stating whether your hypothesis is supported or not
 
 You can run your model in the box below or work in Rstudio, loading the data with
 
-`MediaElecData <- bootcamp2021::MediaElecData`
+`MediaElecData <- bootcamp::MediaElectionData`
 
 ```{r homeplayground1, include=TRUE, exercise = TRUE, exercise.setup = "homeplaydata"}
 
