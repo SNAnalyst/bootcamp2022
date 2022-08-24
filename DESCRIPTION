@@ -1,7 +1,7 @@
 Package: bootcamp
 Type: Package
 Title: Statistics Bootcamp 2022
-Version: 0.00.5
+Version: 0.00.6
 Authors@R:
 	c(person(given = "Roger",
 					family = "Leenders",
@@ -12,7 +12,7 @@ Authors@R:
 					role = c("aut"),
 					email = "SNA4DS@jads.nl"))
 Maintainer: Roger Leenders <r.t.a.j.leenders@jads.nl>
-Description: Contains the tutorials for the JADS course "Stats Bootcamp" (2022-2023). Update the package frequently, to have access to the most up-to-date tutorials. The tutorials will be added throughout the semester. The package contains a vignette that shows the most important functions you need to know for this course.
+Description: Contains the tutorials for the JADS course "Stats Bootcamp" (2022-2023). 
 Depends: R (>= 4.1.0)
 Encoding: UTF-8
 LazyData: true
