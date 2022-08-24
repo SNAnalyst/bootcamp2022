@@ -144,10 +144,10 @@ if (window.hljs) {
 <h2>Introduction</h2>
 <p><br> <br></p>
 <p>You made it to the fourth and final tutorial! Kudos! It’s not an easy
-journey and you are almost there!</p>
-<p>In this tutorial we will learn how to deal with experimental data and
-we will play with the difference between causality and prediction.</p>
-<p>Keep climbing the mountain and you will be rock solid ready for the
+journey, and you are almost there!</p>
+<p>In this tutorial, we will learn how to deal with experimental data
+and play with the difference between causality and prediction.</p>
+<p>Keep climbing the mountain, and you will be rock solid ready for the
 exam!</p>
 <p><br> <br></p>
 <p><img src="images/Himalayan_Ice_5.jpg" /></p>
@@ -198,31 +198,31 @@ data-lines="0">
 <div id="section-shall-we-take-marketing-classes"
 class="section level2">
 <h2>Shall we take Marketing classes?</h2>
-<p>Companies that carry out any kind of business need to implement good
+<p>Companies that carry out any business need to implement good
 marketing strategies to propose their products in the most appealing way
 to their customers. Some people believe that marketing skills are
-natural to some ‘natural born sellers’, other people believe that
-everyone can learn how to be good at marketing.</p>
-<p>If you are a school that teaches to business people marketing
+natural to some ‘natural born sellers’; others believe that everyone can
+learn how to be good at marketing.</p>
+<p>If you are a school that teaches business people marketing
 strategies, you definitely belong to the second group :)</p>
 <p>Let’s consider a fictitious school named ‘The Good School of
 Marketing’ (GSM). GSM wants to measure the effective impact of its
 master course ‘Best marketing strategies for contemporary business’.
 They are scientists and believe in the experimental method. Hence they
 collect data about the 2000 companies with the highest revenue in the
-country and check whether their CEO attended or not their class.</p>
-<p>Please note, when we talk about experimental method, we have a large
-array of options. Usually, we call experiment something taking place in
-a controlled environment such as a lab, where we can control for all the
-conditions in the room. For instance, we can give some drug to a rat and
-see whether the drug helps the rat to get to the end of a maze, given
-the same temperature, humidity rate and food. Even if a so called lab
-experiment is the most famous type of experiment, it is not the only
-one. For instance, we have field experiments. Field experiments take
-place outside of a lab and observe the effect of a treatment (of any
-kind) on a group to be compared to a control group that did not take the
-treatment.</p>
-<p>Let’s take a look at their data and see what we have here.</p>
+country and check whether their CEO attended or not their classes.</p>
+<p>Please note that when we talk about the experimental method, we have
+a large array of options. Usually, we call an experiment something
+taking place in a controlled environment, such as a lab, where we can
+control all the conditions in the room. For instance, we can give some
+drugs to a rat and see whether the drug helps the rat to get to the end
+of a maze, given the same temperature, humidity rate, and food. However,
+even if a so-called lab experiment is the most famous type of
+experiment, it is not the only one. For instance, we have field
+experiments. Field experiments take place outside of a lab and observe
+the effect of a treatment (of any kind) on a group compared to a control
+group that did not take the treatment.</p>
+<p>Let’s look at their data and see what we have here.</p>
 <div class="tutorial-exercise" data-label="tut04_01" data-completion="1"
 data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>summary(marketing)</code></pre>
@@ -240,13 +240,13 @@ marketing strategy success</li>
 size</li>
 <li><code>MaleCEO</code>: is the CEO male? YES (1), NO (0)</li>
 </ul>
-<p>When a company is successful it has a larger network of customers
-that benefit from its services/products. It is straightforward that if
-no one wants to use its services/product the company will eventually
-fail. The network of relationship a company is embedded in is crucial
-for its survival and well being. Do marketing strategies help the
-company attracting clients? The literature on the subject and empirical
-evidence widely support this idea. Then in this case our research
+<p>When a company is successful, it has a more extensive network of
+customers that benefit from its services/products. It is straightforward
+that if no one wants to use its services/product, the company will
+eventually fail. The network of relationships a company is embedded in
+is crucial for its survival and well-being. Do marketing strategies help
+the company attract clients? The literature on the subject and empirical
+evidence widely support this idea. Then, in this case, our research
 question is: Does the master offered by the GSM master help the
 companies in increasing the number of clients? Given our knowledge about
 GSM (let’s pretend ^_^), we believe so. This belief is our research
@@ -254,59 +254,59 @@ hypothesis. Let’s write it down.</p>
 <p>H1: The master offered by GSM affects the number of clients</p>
 <p>H0: The master offered by GSM does not affect the number of
 clients</p>
-<p>Taking the master is our treatment. We compare the treatment group to
-a control group that did not take the master. In this perspective, this
-is a field experiment since we are monitoring the effect of a treatment
-outside of a lab. We cannot control for every condition, as much as in a
-lab. Still, we collect data on some control variables of relevance (in
-this case <code>Online</code>, <code>N_employees</code>,
+<p>Taking the master’s is our treatment. We compare the treatment group
+to a control group that did not take the master’s. From this
+perspective, this is a field experiment since we are monitoring the
+effect of treatment outside of a lab. We cannot control every condition
+as much as in a lab. Still, we collect data on some control variables of
+relevance (in this case <code>Online</code>, <code>N_employees</code>,
 <code>MaleCEO</code>) so that we can make sure that what we observe in
 the experiment is really due to the treatment instead of other
 conditions that happen by chance.</p>
 <p>In this perspective, our outcome variable is <code>N_clients</code>
-since we want to observe whether <code>marketing_class</code> is able to
+since we want to observe whether <code>marketing_class</code> can
 explain its variation.</p>
-<p>In regression terms we have
+<p>In regression terms, we have
 <code>N_clients ~ marketing_class</code></p>
 <p>Let’s move on step by step.</p>
 </div>
 <div id="section-by-all-mean" class="section level2">
-<h2>By all <code>Mean</code></h2>
-<p>When we observe a group of respondents, we cannot possibly analyse
+<h2>By all Mean</h2>
+<p>When we observe a group of respondents, we cannot possibly analyze
 the behavior of each one of them. We need to use some measures that are
-able to communicate in a quick and efficient way what is the population
-trend. Right? To compare the number of clients of the group of CEO that
-took the master to the group of CEO that did not take the master, what
-can we use? Well, statisticians believe that comparing the arithmetic
-mean the treatment group to the arithmetic mean of the control group is
-a good way to see if the treatment has effect or not on the number of
+able to communicate quickly and efficiently the population trend. Right?
+To compare the number of clients of the group of CEO that took the
+master to the group of CEO that did not take the master, what can we
+use? Well, statisticians believe that comparing the arithmetic mean of
+the treatment group to the arithmetic mean of the control group is a
+good way to see if the treatment has an effect or not on the number of
 clients.</p>
 <p>Hence we can say that</p>
 <p>H1: <span class="math inline">\(\mu_1 \neq \mu_0\)</span></p>
 <p>H0: <span class="math inline">\(\mu_1 = \mu_0\)</span></p>
 <p>In fact, if the null hypothesis is correct and the treatment has no
-effect, the mean of the two groups are going to be equal.</p>
+effect, the mean of the two groups will be equal.</p>
 <p>It does make sense. Right?</p>
-<p>The way we spelled out the difference in mean above is called two
-sided, or two tailed or bilateral since we are taking into account both
-positive and negative effects. It is also possible to make assumptions
-on the direction of the effects, specifying the hypothesis on one side
-or the other.</p>
-<p>If we hypothesize that the mean of the treatment group is different
-than the mean of the control one, we are not making any assumption
+<p>The way we spelled out the difference in the mean above is called
+two-sided, two-tailed, or bilateral since we consider both positive and
+negative effects. It is also possible to make assumptions on the
+direction of the effects, specifying the hypothesis on one side or the
+other.</p>
+<p>If we hypothesize that the treatment group’s mean is different than
+the mean of the control one, we are not making any assumptions
 concerning the type of effect that the master is producing. Still, we
-are not only supposing that the effect exist, but also that the effect
+are not only supposing that the effect exists but also that the effect
 is positive.</p>
-<p>The GSM school believes that the master helps the companies to
-increase the number of clients. Hence we can further specify own
-hypothesis as:</p>
+<p>The GSM school believes that the master’s helps companies to increase
+the number of clients. Hence we can further specify our own hypothesis
+as:</p>
 <p>H1: <span class="math inline">\(\mu_1 &gt; \mu_0\)</span></p>
 <p>H0: <span class="math inline">\(\mu_1 = \mu_0\)</span></p>
-<p>Before we run any kind of statistical test to look for evidence in
-support of our hypothesis, we should always take a look at the data.</p>
-<p>Run the code below to produce boxplot that show the difference in
+<p>Before we run any kind of statistical test to look for evidence
+supporting our hypothesis, we should always look at the data.</p>
+<p>Run the code below to produce a boxplot that shows the difference in
 mean for the N of clients divided into the treatment and control
-group.</p>
+groups.</p>
 <div class="tutorial-exercise" data-label="boxplot" data-completion="1"
 data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>boxplot(N_clients ~ marketing_class,
@@ -316,16 +316,16 @@ data-diagnostics="1" data-startover="1" data-lines="0">
         ylab = &quot;N clients&quot;)</code></pre>
 <script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":false,"caption":"<span data-i18n=\"text.enginecap\" data-i18n-opts=\"{&quot;engine&quot;:&quot;R&quot;}\">R Code<\/span>"}</script>
 </div>
-<p>Nice! with this boxplot we can easily see that the averae number of
-clients is much higher for those companies who’s CEOs attended the
-master! Can you see it? The 1 denotes the boxplot about the treated
+<p>Nice! with this boxplot, we can easily see that the average number of
+clients is much higher for those companies whose CEOs attended the
+master’s! Can you see it? The 1 denotes the boxplot about the treated
 group, while the 0 is below the boxplot with the control.</p>
 <p>Is this enough to support our hypothesis? I am afraid it is not. In
-statistics we talk about statistical significance, right? Is our result
-random, or it is generated by a specific process? AKA, if we repeat the
-experiment 1000 times, are we going to get the same result?</p>
-<p>Well, let’s use a statistical test to check on the significance of
-our result!</p>
+statistics, we talk about statistical significance, right? Is our result
+random, or does a specific process generate it? AKA, will we get the
+same result if we repeat the experiment 1000 times?</p>
+<p>Well, let’s use a statistical test to check the significance of our
+result!</p>
 </div>
 <div id="section-statistically-significant" class="section level2">
 <h2>Statistically significant</h2>
@@ -336,12 +336,12 @@ groups are sampled from normal distributions with equal variances. Does
 it ring any bell? Isn’t it similar to the linear regression assumption?
 Well, we will discuss this later…</p>
 <p>We can run a t-test in R with the <code>t.test()</code> function from
-the <code>stats</code> in built package.</p>
-<p>Explore the function usage typing</p>
-<p><code>?stats::t.test</code> in your console or in the code box
+the <code>stats</code> inbuilt package.</p>
+<p>Explore the function usage by typing</p>
+<p><code>?stats::t.test</code> in your console or the code box
 below.</p>
-<p>We are going to specify the t-test for our hypothesis similarly to a
-linear regression. Let’s try.</p>
+<p>We will specify the t-test for our hypothesis similarly to linear
+regression. Let’s try.</p>
 <div class="tutorial-exercise" data-label="t-test" data-completion="1"
 data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>H1test &lt;- stats::t.test(marketing$N_clients ~ marketing$marketing_class, 
@@ -351,29 +351,27 @@ H1test</code></pre>
 <script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":false,"caption":"<span data-i18n=\"text.enginecap\" data-i18n-opts=\"{&quot;engine&quot;:&quot;R&quot;}\">R Code<\/span>"}</script>
 </div>
 <p>It worked!</p>
-<p>the way we specified the test is checking for the two sided
-option.</p>
+<p>The way we specified the test checks the two-sided option.</p>
 <p>What can we say about the result? We have a p-value smaller than
-2.2e-16. The probability that the difference in mean we observe between
-the treatment and the control group is by random is very very small. So
-small, that we can claim that there is evidence in favor of our
-hypothesis 1.</p>
+2.2e-16. Therefore, the probability that the difference in mean we
+observe between the treatment and the control group is random is very,
+very small. So small that we can claim that there is evidence in favor
+of our hypothesis 1.</p>
 <p>The output also provides the confidence interval. We can read a
 confidence interval alternatively than a p-value. We have -269.1029 and
 -229.7591. These two scores are both negative. A confidence interval
-shows a significant result when both score are either both positive or
-both negative. If they have different sign they are considered not
+shows a significant result when both scores are either both positive or
+both negative. If they have a different sign, they are considered not
 significant.</p>
 <p>The output also provides us with the estimated mean for each group.
-These numbers match with the two tick lines we have observed in the
-boxplot.</p>
-<p>Ok, we have tested the two sided hypothesis. Still, the University
-believes that their graduates are increasing the number of clients!
-Shall we test that?</p>
+These numbers match the two tick lines we observed in the boxplot.</p>
+<p>Ok, we have tested the two-sided hypothesis. Still, the University
+believes that its graduates have a higher number of clients! Shall we
+test that?</p>
 <p>Can you do it for me? Pretty, pretty please :)</p>
 <p>I will help you. Use the code provided above and substitute
-“two.sided” with “less”. It is checking whether the mean of the control
-group is significantly smaller than the treated one.</p>
+“two.sided” with “less”. It checks whether the control group’s mean is
+significantly smaller than the treated one.</p>
 <div class="tutorial-exercise" data-label="testgreater"
 data-completion="1" data-diagnostics="1" data-startover="1"
 data-lines="0">
@@ -390,8 +388,8 @@ H1test</code></pre>
 <p>Yes! It is significant! Our treatment group has a statistically
 significant effect in increasing the number of clients! Lovely!</p>
 <p>Why don’t you try to check on the possibility that the mean of the
-treated group is higher than the mean of the control group? Same way as
-above but you need to specify the option “greater”. Give it a go!</p>
+treated group is higher than the mean of the control group? Same as
+above, but you need to specify the option “greater”. Give it a go!</p>
 <div class="tutorial-exercise" data-label="testless" data-completion="1"
 data-diagnostics="1" data-startover="1" data-lines="0">
 <script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":true,"caption":"<span data-i18n=\"text.enginecap\" data-i18n-opts=\"{&quot;engine&quot;:&quot;R&quot;}\">R Code<\/span>"}</script>
@@ -404,45 +402,45 @@ data-lines="0">
 
 H1test</code></pre>
 </div>
-<p>the p-value this time is very high! Hence, we can claim that the
-Marketing master is not having a negative effect on the companies!
+<p>The p-value this time is very high! Hence, we can claim that the
+Marketing master’s is not having a negative effect on companies!
 Good!</p>
-<p>Now that we know how to run the test, shall we also check what does
-this mean in practice? Yes, I know that at the bottom of your heart you
+<p>Now that we know how to run the test, shall we also check what this
+means in practice? Yes, I know that at the bottom of your heart, you
 want to :D</p>
-<p>Let’s take a look at this image</p>
+<p>Let’s take a look at this image.</p>
 <p><img src="images/t-test_two_tails_05.png" /></p>
-<p>In this image we see the distribution of difference between the mean
-of the treatment and control group of the same experiment that we are
+<p>In this image, we see the distribution of the difference between the
+mean of the treatment and control group of the same experiment we are
 running in real life, reproduced via simulation. Each of the points
-forming the bell curve is an experiment. In order for our real
-experiment to be significant, it needs to be either in the red area on
-the right or on the left. This is what the two-tailed test is looking
-for. It is less likely to be in one of these two small areas instead of
-the large space at the center, that’s why the p-value needs to be small.
-The unlikely needs to happen. If our experiment resembles all the random
-others it does not have much value.</p>
-<p>If we specify ‘greater’ in the test, we are only looking at the red
-area on the right hand side of the plot. If we specify ‘less’ we are
-only looking at the left one.</p>
+forming the bell curve is an experiment. For our real experiment result
+to be significant, it must be either in the red area on the right or
+left. This is what the two-tailed test is looking for. It is less likely
+to be in one of these two small areas instead of the large space at the
+center; that’s why the p-value needs to be small. The unlikely needs to
+happen. If our experiment resembles all the random others, it does not
+have much value. It is not interesting; it is not significant. :)</p>
+<p>If we specify ‘greater’ in the test, we are only looking at the
+plot’s red area on the left-hand side. Likewise, if we specify ‘less’,
+we only look at the right one.</p>
 </div>
 <div id="section-linear-regression" class="section level2">
 <h2>Linear Regression</h2>
 <p>As we already learned in the previous classes this week, the linear
-regression models also analyses how a variable is able to predict the
-variation of an outcome one given that the outcome is numeric and
-follows a normal distribution. Linear regression is also checking on the
-differences between groups of respondents on average. Mathematically,
-the reasoning behind the t-test and the linear regression is very
-similar. We can test our experimental hypothesis with the
-<code>lm()</code> function that you know already.</p>
+regression model also analyses how a variable can predict the variation
+of an outcome, given that the outcome is numeric and follows a normal
+distribution. Linear regression also checks the differences between
+groups of respondents on average. The reasoning behind the t-test and
+the linear regression are mathematically similar. We can test our
+experimental hypothesis with the <code>lm()</code> function you already
+know.</p>
 <p>Shall we try?</p>
 <p>First of all, we need to make sure that the variables have the right
 dress for the occasion.</p>
-<p><code>marketing_class</code> needs to be recoded as a factor since it
-is a dummy one denoting the state of having taken or not the master
+<p><code>marketing_class</code> needs to be re-coded as a factor since
+it is a dummy one denoting the state of having taken or not the master
 class.</p>
-<p>Then, we can run the model</p>
+<p>Then, we can run the model.</p>
 <div class="tutorial-exercise" data-label="linear_reg"
 data-completion="1" data-diagnostics="1" data-startover="1"
 data-lines="0">
@@ -455,25 +453,25 @@ summary(H1lm)</code></pre>
 <script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":false,"caption":"<span data-i18n=\"text.enginecap\" data-i18n-opts=\"{&quot;engine&quot;:&quot;R&quot;}\">R Code<\/span>"}</script>
 </div>
 <p>The p-value is smaller than 2.2e-16. This is exactly the same result
-we got with the t-test! waw! Since it is significant we can move on
-reading the estimate. According to the model those CEOs that took the
-master are 249.431 more likely than those CEOs who did not to have an
+we got with the t-test! Waw! Since it is significant, we can move on to
+reading the estimate. According to the model, those CEOs who took the
+master’s are 249.431 more likely than those who did not to have an
 increment in the number of clients! This is a fantastic result for the
 GSM School!</p>
-<p>Now we are happy and satisfied, right? No! wait, we have more
-information! are we absolutely sure that the higher average number of
-clients in the treatment group has to be attributed to the the
-treatment? Well, no. We cannot possibly know.</p>
+<p>Now we are happy and satisfied, right? No! Wait, we have more
+information! Are we absolutely sure that the higher average number of
+clients in the treatment group has to be attributed to the treatment?
+Well, no. We cannot possibly know.</p>
 <p>Since we have control variables, we should include them in the model
-in order to make sure that they are not the real reason for which we
-observe this difference in mean.</p>
+to ensure that they are not the real reason for which we observe this
+difference in mean.</p>
 <p>Can you do it for me?</p>
 <ul>
 <li>check the variables’ class</li>
 <li>prepare the variables IF needed.</li>
-<li>insert them in the model</li>
+<li>insert them into the model</li>
 </ul>
-<p>tip: run <code>head(marketing)</code> to refresh what are the other
+<p>Tip: run <code>head(marketing)</code> to refresh what are the other
 variables.</p>
 <div class="tutorial-exercise" data-label="linear_reg2"
 data-completion="1" data-diagnostics="1" data-startover="1"
@@ -497,42 +495,41 @@ H1lm1 &lt;- stats::lm(N_clients ~ marketing_class +
 
 summary(H1lm1)</code></pre>
 </div>
-<p>Here we are! None of the control variables is significant! Now we can
-truly claim that the marketing class in the master is super good and
-makes increase the number of clients!</p>
+<p>Here we are! None of the control variables is significant! So now we
+can truly claim that the marketing class in the master’s is super good
+and increases the number of clients!</p>
 </div>
 <div id="section-predicting-the-future" class="section level2">
 <h2>Predicting the Future</h2>
-<p>What we did so far in this tutorial would be called by the majority
-of us statistics. Right? Would you call it data science? Well, I don’t
-know what you are thinking right now, but I am pretty sure that you
-would call data science a predictive model that uses linear
-regressions.</p>
+<p>What we have done so far in this tutorial would be called by most of
+us statistics. Right? Would you call it data science? Well, I don’t know
+what you are thinking right now, but I am pretty sure that you would
+call data science a predictive model that uses linear regressions.</p>
 <p>Right?</p>
-<p>Well, when we enter the world of predictive models we think of
-machine learning, neural networks, artificial intelligence and so on and
-so forth. Is it that far?</p>
+<p>Well, when we enter the world of predictive models, we think of
+machine learning, neural networks, artificial intelligence, and so on.
+Is it that far?</p>
 <p>When causal inferences approaches look at the reasons why we observe
 something (are the companies having more clients because their CEOs took
-the master?), predictive approaches aim at classifying the future
+the master’s?), predictive approaches aim at classifying the future
 behavior into patterns we already know. I know that a large number of
-people behave this way (training data set), what are other people
-expected to do (test data set).</p>
+people behave this way (training data set); what are other people
+expected to do (test data set)?</p>
 <p>These are two sides of the same coin.</p>
-<p>When we use linear regressions to make prediction, we are assuming
-that new actions can be classified according to the pattern we already
+<p>When we use linear regressions to make a prediction, we assume that
+new actions can be classified according to the pattern we already
 explained. After you establish the causes, you can predict ‘the future’!
-aka, you can see how a new observation lies in the old pattern.</p>
+Aka, you can see how a new observation lies in the old pattern.</p>
 <p>Let’s move on with our example and assume that our
-<code>marketing</code> data set is our training data set and now the
-university wants to predict the behavior of perspective students.</p>
-<p>Let’s start in the most simple way. Let’s get back to the first
-linear model where we only consider our outcome variable
-<code>N_clients</code> and predictor <code>marketing_class</code>.</p>
-<p>let’s prepare a toy test data set with one entry for marketing_class
-only.</p>
-<p><code>p</code> is storing data frame with two entries. Entry one does
-not take the master, entry two does.</p>
+<code>marketing</code> data set is our training data set, and now the
+university wants to predict the behavior of prospective students.</p>
+<p>Let’s start most simply. Let’s return to the first linear model where
+we only consider our outcome variable <code>N_clients</code> and
+predictor <code>marketing_class</code>.</p>
+<p>Let’s prepare a toy test data set with two entries for
+marketing_class only.</p>
+<p><code>p</code> is storing a data frame with two entries. Entry one
+does not take the master; entry two does.</p>
 <div class="tutorial-exercise" data-label="linear_regPred"
 data-completion="1" data-diagnostics="1" data-startover="1"
 data-lines="0">
@@ -543,18 +540,19 @@ p
 predict(H1lm, newdata = p)</code></pre>
 <script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":false,"caption":"<span data-i18n=\"text.enginecap\" data-i18n-opts=\"{&quot;engine&quot;:&quot;R&quot;}\">R Code<\/span>"}</script>
 </div>
-<p>We can already tell to one perspective student that according to our
-model their number of clients will be around</p>
-<p>508 if they don’t take the master, and around 557 if they do.</p>
+<p>We can already tell one perspective student that according to our
+model, their number of clients will be around.</p>
+<p>508 if they don’t take the master, and around 757 if they do.</p>
 <p>Can we see that these numbers are exactly the mean of the control and
 the treatment group?</p>
-<p>ahhh how fun is math? ^_^</p>
-<p>Ok this model is very basic. Let’s make use of all the other info we
-have by creating a more informative test data set.</p>
-<p>The <code>p</code> data frame contains now three entries with full
-information on the four variables we have. The three entries are offline
-companies and they all have around 50 employees. Hence we want to see
-whether being a man and taking the master or not makes a difference.</p>
+<p>ahhh, how fun is math? ^_^</p>
+<p>Ok, this model is very basic. So let’s make use of all the other info
+we have by creating a more informative test data set.</p>
+<p>The <code>p</code> data frame now contains three entries with
+complete information on our four variables. The three entries are
+offline companies, and they all have around 50 employees. Hence we want
+to see whether being a man and taking the master’s or not makes a
+difference.</p>
 <div class="tutorial-exercise" data-label="linear_regPred2"
 data-completion="1" data-diagnostics="1" data-startover="1"
 data-lines="0">
@@ -567,22 +565,27 @@ p
 predict(H1lm1, newdata = p)</code></pre>
 <script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":false,"caption":"<span data-i18n=\"text.enginecap\" data-i18n-opts=\"{&quot;engine&quot;:&quot;R&quot;}\">R Code<\/span>"}</script>
 </div>
-<p>Given the results we can say that being a woman CEO does not affect
+<p>Given the results, we can say that being a woman CEO does not affect
 the chances of increasing the number of clients. In fact, the third
-entry is a woman and keeping all the conditions constant has about 7
-clients more than her male CEO colleague that also took the master
+entry is a woman, and keeping all the conditions constant, she has about
+7 clients more than her male CEO colleague that also took the master
 (entry one).</p>
-<p>Needless to say, you can estimate these scores manually as we learned
-in the lab in Day3.</p>
-<p>Machine learning, Neural Networks, AI etc, have more sophisticated
-ways to make predictions, but they are ultimately using the same mindset
-that we just discussed here.</p>
+<p>Needless to say, you can estimate these scores manually, as we
+learned in the lab during Day3.</p>
+<p>Machine learning, Neural Networks, AI, etc., have more sophisticated
+ways to make predictions, but they ultimately use the same mindset we
+just discussed here. Statistical models also get much more complex than
+this linear regression we used here.</p>
 <p>It makes no sense to discuss whether causal inference is more or less
-data science than prediction as much as it makes to sense to discuss
-whether fish and chips is less of a food than pizza.</p>
+data science than prediction as much as it makes no sense to discuss
+whether fish and chips are less of food than a pizza.</p>
 </div>
-<div id="section-the-network-conundrum" class="section level2">
-<h2>The Network Conundrum</h2>
+<div id="section-conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p>You got to the end of the tutorial! Well done! Be proud of
+yourself!</p>
+<p><br> <br></p>
+<p><img src="images/istockphoto.jpg" /></p>
 <p>
 <script type="application/shiny-prerendered" data-context="server-start">
 library(learnr)
@@ -1253,11 +1256,11 @@ learnr:::store_exercise_cache(structure(list(label = "linear_regPred2", global_s
 "}", "", "", "check_RStudio <- function() {", "  bootcamp::check_rstudio_equal_or_larger(\"2022.07.1\", verdict = TRUE)", 
 "}", "", "check_R <- function() {", "  bootcamp::check_r_equal_or_larger(\"4.2.1\", verdict = TRUE)", 
 "}", ""), chunk_opts = list(label = "setup", include = FALSE)), 
-    setup = "\namazon <- bootcamp::amazon\namazon$logo <- as.numeric(amazon$logo)\nma <- amazon[amazon$logo <= 2, ]\nmarketing <- ma[, -3]\ncolnames(marketing) <- c(\"marketing_class\", \"N_clients\", \"Online\", \"N_employees\", \"MaleCEO\")\nmarketing$marketing_class[marketing$marketing_class == 2] <- 0\n\nH1lm1 <- stats::lm(N_clients ~ marketing_class +\n                    Online +\n                    N_employees +\n                    MaleCEO, \n                  data = marketing)\n\n", 
+    setup = "\namazon <- bootcamp::amazon\namazon$logo <- as.numeric(amazon$logo)\nma <- amazon[amazon$logo <= 2, ]\nmarketing <- ma[, -3]\ncolnames(marketing) <- c(\"marketing_class\", \"N_clients\", \"Online\", \"N_employees\", \"MaleCEO\")\nmarketing$marketing_class[marketing$marketing_class == 2] <- 0\n\n\nmarketing$marketing_class <- as.factor(marketing$marketing_class)\nH1lm1 <- stats::lm(N_clients ~ marketing_class +\n                    Online +\n                    N_employees +\n                    MaleCEO, \n                  data = marketing)\n\n", 
     chunks = list(list(label = "tut04_prepMarketing", code = "\namazon <- bootcamp::amazon\namazon$logo <- as.numeric(amazon$logo)\nma <- amazon[amazon$logo <= 2, ]\nmarketing <- ma[, -3]\ncolnames(marketing) <- c(\"marketing_class\", \"N_clients\", \"Online\", \"N_employees\", \"MaleCEO\")\nmarketing$marketing_class[marketing$marketing_class == 2] <- 0\n", 
         opts = list(label = "\"tut04_prepMarketing\"", echo = "FALSE", 
             include = "FALSE"), engine = "r"), list(label = "lm1", 
-        code = "H1lm1 <- stats::lm(N_clients ~ marketing_class +\n                    Online +\n                    N_employees +\n                    MaleCEO, \n                  data = marketing)\n\n", 
+        code = "\nmarketing$marketing_class <- as.factor(marketing$marketing_class)\nH1lm1 <- stats::lm(N_clients ~ marketing_class +\n                    Online +\n                    N_employees +\n                    MaleCEO, \n                  data = marketing)\n\n", 
         opts = list(label = "\"lm1\"", echo = "FALSE", exercise = "FALSE", 
             exercise.setup = "\"tut04_prepMarketing\""), engine = "r"), 
         list(label = "linear_regPred2", code = "\np <- data.frame(\"marketing_class\" = as.factor(c(1,0,1)), \n                                              \"Online\" = as.factor(c(1, 1, 1)),\n                                              \"N_employees\" = c(50, 50, 50),\n                                              \"MaleCEO\" = as.factor(c(1, 1, 0))) \np\n\npredict(H1lm1, newdata = p)", 
