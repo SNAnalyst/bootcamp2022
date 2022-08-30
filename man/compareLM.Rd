@@ -20,7 +20,7 @@ Produces a table of fit statistics for multiple lm models.
 }
 \details{
 Produces a table of fit statistics for multiple lm models: 
-          AIC, AICc, BIC, p-value, R-squared, and adjusted R-squared.
+          AIC, AICc, BIC, p-value (for the F-test), R-squared, and adjusted R-squared.
           
           Smaller values for AIC, AICc, and BIC indicate a better balance
           of goodness-of-fit of the model and the complexity of the
@@ -29,9 +29,12 @@ Produces a table of fit statistics for multiple lm models:
           
           BIC tends to choose models with fewer parameters relative to AIC.
           
-          In the table, \code{Shapiro.W} and \code{Shapiro.p} are the
-          W statistic and p-value for the Shapiro-Wilks test on the residuals
-          of the model.
+          In the table, \code{anderson.p} refers to the
+          p-value for the Anderson-Darling test of 
+          Normality of the residuals of the model. 
+          The value of the test statistic itself is not reported, since that 
+          isn't informative by itself. If this is wanted, run \link{ad_test} 
+          directly.
           
           For comparisons with AIC, etc., to be valid, both models must
           have the same data, without transformations, use the same 
@@ -43,19 +46,12 @@ Produces a table of fit statistics for multiple lm models:
 }
 \examples{
 ### Compare among polynomial models
-data(BrendonSmall)
+data(BrendonSmall, package = "bootcamp")
 BrendonSmall$Calories = as.numeric(BrendonSmall$Calories)
-
-BrendonSmall$Calories2 = BrendonSmall$Calories * BrendonSmall$Calories
-BrendonSmall$Calories3 = BrendonSmall$Calories * BrendonSmall$Calories * 
-                         BrendonSmall$Calories
-BrendonSmall$Calories4 = BrendonSmall$Calories * BrendonSmall$Calories * 
-                         BrendonSmall$Calories * BrendonSmall$Calories
 model.1 = lm(Sodium ~ Calories, data = BrendonSmall)
-model.2 = lm(Sodium ~ Calories + Calories2, data = BrendonSmall)
-model.3 = lm(Sodium ~ Calories + Calories2 + Calories3, data = BrendonSmall)
-model.4 = lm(Sodium ~ Calories + Calories2 + Calories3 + Calories4,
-             data = BrendonSmall)
+model.2 = lm(Sodium ~ poly(Calories, 2), data = BrendonSmall)
+model.3 = lm(Sodium ~ poly(Calories, 3), data = BrendonSmall)
+model.4 = lm(Sodium ~ poly(Calories, 4), data = BrendonSmall)
 compareLM(model.1, model.2, model.3, model.4)
 
 }

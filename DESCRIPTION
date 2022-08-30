@@ -1,7 +1,7 @@
 Package: bootcamp
 Type: Package
 Title: Statistics Bootcamp 2022
-Version: 0.00.6
+Version: 0.00.8
 Authors@R:
 	c(person(given = "Roger",
 					family = "Leenders",
