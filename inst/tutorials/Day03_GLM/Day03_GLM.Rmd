@@ -741,15 +741,15 @@ has a good fit or not? We do a binned plot!
 
 
 ```{r tut04_0120, echo=TRUE, exercise.setup = "logit_Models", exercise=TRUE}
-bootcamp2021::binnedplot(fitted(JobModel2), 
-           residuals(JobModel2, type = "response"), 
-           nclass = NULL, 
-           xlab = "Expected Values", 
-           ylab = "Average residual", 
-           main = "Binned residual plot", 
-           cex.pts = 0.8, 
-           col.pts = 1, 
-           col.int = "gray")
+bootcamp::binnedplot(fitted(JobModel2), 
+                     residuals(JobModel2, type = "response"), 
+                     nclass = NULL, 
+                     xlab = "Expected Values", 
+                     ylab = "Average residual", 
+                     main = "Binned residual plot", 
+                     cex.pts = 0.8, 
+                     col.pts = 1, 
+                     col.int = "gray")
 
 ```
 
@@ -954,15 +954,15 @@ AltUJobModel3 <- stats::glm(formula = DS_job ~ DS_skills + anxiety + age,
                             data = DSjob_marketAltU)
 texreg::screenreg(list(AltUJobModel1, AltUJobModel2, AltUJobModel3))
 
-bootcamp2021::binnedplot(fitted(AltUJobModel1), 
-           residuals(AltUJobModel2, type = "response"), 
-           nclass = NULL, 
-           xlab = "Expected Values", 
-           ylab = "Average residual", 
-           main = "Binned residual plot", 
-           cex.pts = 0.8, 
-           col.pts = 1, 
-           col.int = "gray")
+bootcamp::binnedplot(fitted(AltUJobModel1), 
+                     residuals(AltUJobModel2, type = "response"), 
+                     nclass = NULL, 
+                     xlab = "Expected Values", 
+                     ylab = "Average residual", 
+                     main = "Binned residual plot", 
+                     cex.pts = 0.8, 
+                     col.pts = 1, 
+                     col.int = "gray")
 
 ```
 
