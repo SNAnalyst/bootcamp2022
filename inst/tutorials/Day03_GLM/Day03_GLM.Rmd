@@ -457,7 +457,7 @@ Hence, we will check the class and, if it isn't the right one, we will change it
 You can check the class with the function `class()` to see whether your variable is numeric, categorical, ordinal etc. 
 
 If you need to check the frequences, you can use the function `table()`. 
-If you need to change class, you can use a set of function like `as.numeric()` or `as.categorical()` to change the class of your variable.
+If you need to change class, you can use a set of function like `as.numeric()` or `as.factor()` to change the class of your variable.
 
 Can you make sure that 
 
@@ -742,7 +742,7 @@ has a good fit or not? We do a binned plot!
 
 ```{r tut04_0120, echo=TRUE, exercise.setup = "logit_Models", exercise=TRUE}
 bootcamp::binnedplot(fitted(JobModel2), 
-                     residuals(JobModel2, type = "response"), 
+                     residuals(JobModel2), 
                      nclass = NULL, 
                      xlab = "Expected Values", 
                      ylab = "Average residual", 
@@ -955,7 +955,7 @@ AltUJobModel3 <- stats::glm(formula = DS_job ~ DS_skills + anxiety + age,
 texreg::screenreg(list(AltUJobModel1, AltUJobModel2, AltUJobModel3))
 
 bootcamp::binnedplot(fitted(AltUJobModel1), 
-                     residuals(AltUJobModel2, type = "response"), 
+                     residuals(AltUJobModel1), 
                      nclass = NULL, 
                      xlab = "Expected Values", 
                      ylab = "Average residual", 
