@@ -235,9 +235,7 @@ original logo or one of two others?
 
 Let's look at the three logos:
 
-```{r amazon_logo_pic, fig.width = 500}
-knitr::include_graphics('images/Amazon_logo_variations.png')
-```
+![Amazon Logos](images/Amazon_logo_variations.png)
 
 Which one makes you grab your wallet the most?<br> (can you spot the
 differences? They are minor...)
