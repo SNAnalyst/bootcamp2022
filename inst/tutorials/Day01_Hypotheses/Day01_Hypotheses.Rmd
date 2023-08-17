@@ -1003,6 +1003,81 @@ And, to give you enough practice, HERE IS EXERCISE ***TWO***:
 
 <br><br><br>
 
+
+Oh, and here's some bonus exercises. For fun. And educational too.
+Many people mistakingly believe that OLS models only fit straight lines. 
+That is nonsense! OLS models are linearly additive, but that doesn't mean that 
+the resulting relationships between `x` and `y` should be linear!
+
+Here are 11 plots, of `x` against `y`. The plotted line simply is $y = f(x)$, 
+it doesn't get more linear than that.
+Can you figure out what the $f(x)$ is, for each plot? 
+
+::: infobox
+```{r, plotA, echo - FALSE}
+x <- seq(-10, 10, length = 100)
+plot(x, 3*x^2, type = "l", main = "Plot A", ylab = "y")
+```
+
+```{r, plotB, echo - FALSE}
+x <- seq(-10, 10, length = 100)
+plot(x, -3*x^2, type = "l", main = "Plot B", ylab = "y")
+```
+
+```{r, plotC, echo - FALSE}
+x <- seq(-10, 10, length = 100)
+suppressWarnings(plot(x, log(x), type = "l", main = "Plot C", ylab = "y"))
+```
+
+```{r, plotD, echo - FALSE}
+x <- seq(-10, 10, length = 100)
+suppressWarnings(plot(x, -log(x), type = "l", main = "Plot D", ylab = "y"))
+```
+
+```{r, plotE, echo - FALSE}
+x <- seq(-10, 10, length = 100)
+plot(x, 1/(3*x^2), type = "l", main = "Plot E", ylab = "y")
+```
+
+```{r, plotF, echo - FALSE}
+x <- seq(-10, 10, length = 100)
+plot(x, 1/(-3*x^2), type = "l", main = "Plot F", ylab = "y")
+```
+
+```{r, plotG, echo - FALSE}
+x <- seq(-10, 10, length = 100)
+plot(x, 3*x^3, type = "l", main = "Plot G", ylab = "y")
+```
+
+```{r, plotH, echo - FALSE}
+x <- seq(-10, 10, length = 100)
+plot(x, exp(x), type = "l", main = "Plot H", ylab = "y")
+```
+
+```{r, plotI, echo - FALSE}
+x <- seq(-10, 10, length = 100)
+plot(x, -exp(x), type = "l", main = "Plot I", ylab = "y")
+```
+
+```{r, plotJ, echo - FALSE}
+x <- seq(-10, 10, length = 100)
+plot(x, 1/exp(x), type = "l", main = "Plot J", ylab = "y")
+```
+
+```{r, plotK, echo - FALSE}
+x <- seq(-10, 10, length = 100)
+plot(x, -1/exp(x), type = "l", main = "Plot K", ylab = "y")
+```
+
+
+:::
+
+In real OLS's, you can have combinations of these, and that can represent quite 
+funky and non-linear relations between $x$ and $y$!
+
+See if you can figure it out.
+
+
 > GO FOR IT AND EXPLORE!
 
 ![](images/lion.jpg){width="806"}
