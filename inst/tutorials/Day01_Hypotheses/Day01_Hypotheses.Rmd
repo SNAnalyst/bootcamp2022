@@ -1011,7 +1011,7 @@ the resulting relationships between `x` and `y` should be linear!
 
 Here are 11 plots, of `x` against `y`. The plotted line simply is $y = f(x)$, 
 it doesn't get more linear than that.
-Can you figure out what the $f(x)$ is, for each plot? 
+Can you figure out what the $f(x)$ is, for each plot? They are all very simple.
 
 ::: infobox
 ```{r, plotA, echo - FALSE}
@@ -1075,8 +1075,8 @@ plot(x, -1/exp(x), type = "l", main = "Plot K", ylab = "y")
 In real OLS's, you can have combinations of these, and that can represent quite 
 funky and non-linear relations between $x$ and $y$!
 
-See if you can figure it out.
 
+<br><br><br>
 
 > GO FOR IT AND EXPLORE!
 

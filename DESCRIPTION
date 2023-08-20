@@ -1,7 +1,7 @@
 Package: bootcamp
 Type: Package
 Title: Statistics Bootcamp 2022
-Version: 0.00.8
+Version: 0.01
 Authors@R:
 	c(person(given = "Roger",
 					family = "Leenders",
@@ -18,7 +18,7 @@ Encoding: UTF-8
 LazyData: true
 URL: https://github.com/SNAnalyst/bootcamp2022
 BugReports: https://github.com/SNAnalyst/bootcamp2022/issues
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 Imports:
     DescTools,
     glue,
