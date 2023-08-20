@@ -1,6 +1,6 @@
 #' Nightly sleep in first year of college
 #'
-#' This data set includes data for 140 first year college students.
+#' This data set includes data for 284 first year college students.
 #' 
 #' The data were used for analyzing the relationship between
 #' academic achievement in the first year of college and the students' sleep.
@@ -8,7 +8,7 @@
 #' the variables. Two cases have been deleted, these had missings for \code{Gender}
 #' and \code{Race}.
 #'
-#' @format A data frame with 140 observations on the following 6 variables.
+#' @format A data frame with 284 observations on the following 7 variables.
 #' \describe{
 #'   \item{TermGPA}{GPA for the Spring term}
 #'   \item{TotalSleepTime}{Total sleep per day (in minutes)}
