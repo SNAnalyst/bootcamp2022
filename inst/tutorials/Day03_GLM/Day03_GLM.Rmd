@@ -41,11 +41,11 @@ check_pkgs <- function(.pkgs = pkgs) {
 
 
 check_RStudio <- function() {
-  bootcamp::check_rstudio_equal_or_larger("2022.07.1", verdict = TRUE)
+  bootcamp::check_rstudio_equal_or_larger("2023.6.1", verdict = TRUE)
 }
 
 check_R <- function() {
-  bootcamp::check_r_equal_or_larger("4.2.1", verdict = TRUE)
+  bootcamp::check_r_equal_or_larger("4.3.1", verdict = TRUE)
 }
 
 ```
