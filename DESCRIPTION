@@ -1,7 +1,7 @@
 Package: bootcamp
 Type: Package
-Title: Statistics Bootcamp 2022
-Version: 0.01
+Title: Statistics Bootcamp 
+Version: 0.02
 Authors@R:
 	c(person(given = "Roger",
 					family = "Leenders",
@@ -12,12 +12,12 @@ Authors@R:
 					role = c("aut"),
 					email = "SNA4DS@jads.nl"))
 Maintainer: Roger Leenders <r.t.a.j.leenders@jads.nl>
-Description: Contains the tutorials for the JADS course "Stats Bootcamp" (2022-2023). 
+Description: Contains the tutorials for the JADS course "Stats Bootcamp". 
 Depends: R (>= 4.1.0)
 Encoding: UTF-8
 LazyData: true
-URL: https://github.com/SNAnalyst/bootcamp2022
-BugReports: https://github.com/SNAnalyst/bootcamp2022/issues
+URL: https://github.com/SNAnalyst/bootcamp
+BugReports: https://github.com/SNAnalyst/bootcamp/issues
 RoxygenNote: 7.2.3
 Imports:
     DescTools,
