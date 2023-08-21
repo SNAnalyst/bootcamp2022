@@ -5,7 +5,7 @@
 \alias{sleep_students}
 \title{Nightly sleep in first year of college}
 \format{
-A data frame with 140 observations on the following 6 variables.
+A data frame with 284 observations on the following 7 variables.
 \describe{
   \item{TermGPA}{GPA for the Spring term}
   \item{TotalSleepTime}{Total sleep per day (in minutes)}
@@ -22,7 +22,7 @@ A data frame with 140 observations on the following 6 variables.
 }
 }
 \description{
-This data set includes data for 140 first year college students.
+This data set includes data for 284 first year college students.
 }
 \details{
 The data were used for analyzing the relationship between

@@ -8,18 +8,18 @@
 \alias{check_r_equal_or_larger}
 \title{Check for correct version of R or RStudio}
 \usage{
-check_rstudio_equal(version = "2022.7.1", verdict = TRUE)
+check_rstudio_equal(version = "2023.6.1", verdict = TRUE)
 
-check_r_equal(version = "4.2.1", verdict = TRUE)
+check_r_equal(version = "4.3.1", verdict = TRUE)
 
-check_rstudio_equal_or_larger(version = "2022.7.1.554", verdict = TRUE)
+check_rstudio_equal_or_larger(version = "2023.6.1.524", verdict = TRUE)
 
-check_r_equal_or_larger(version = "4.2.1", verdict = TRUE)
+check_r_equal_or_larger(version = "4.3.1", verdict = TRUE)
 }
 \arguments{
 \item{version}{required version number to test against}
 
-\item{verdict}{logical, whether a text with the verdict needs to be printed 
+\item{verdict}{logical, whether a text with the verdict needs to be printed
 to the console}
 }
 \value{
@@ -31,15 +31,15 @@ Check for correct version of R or RStudio
 \details{
 Checks whether the user is using the correct version of RStudio or R
 
-The result is a logical (\code{TRUE} or \code{FALSE}), which is returned 
+The result is a logical (\code{TRUE} or \code{FALSE}), which is returned
 invisibly.
 
 If required, a verdict can be printed to the console as well (when \code{verdict = TRUE})
 
-The functions \code{check_rstudio_equal} and  \code{check_r_equal} check 
+The functions \code{check_rstudio_equal} and  \code{check_r_equal} check
 whether RStudio or R have the exact version asked for.
 
-The functions \code{check_rstudio_equal_or_larger} and \code{check_r_equal_or_larger} check 
+The functions \code{check_rstudio_equal_or_larger} and \code{check_r_equal_or_larger} check
 whether RStudio or R have at least the version asked for (havig a higher version is fine).
 }
 \section{Functions}{

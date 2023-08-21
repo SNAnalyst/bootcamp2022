@@ -3,7 +3,7 @@
 #'
 #' @description A function that plots averages of y versus averages of x and can be useful to plot residuals for logistic #'regression.
 #'
-#' @Usage
+#' @usage
 #'           binnedplot(x ,y, nclass=NULL,
 #'           xlab="Expected Values", ylab="Average residual",
 #'           main="Binned residual plot",

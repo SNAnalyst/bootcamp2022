@@ -4,18 +4,10 @@
 \alias{binnedplot}
 \title{Binned Residual Plot}
 \usage{
-binnedplot(
-  x,
-  y,
-  nclass = NULL,
-  xlab = "Expected Values",
-  ylab = "Average residual",
-  main = "Binned residual plot",
-  cex.pts = 0.8,
-  col.pts = 1,
-  col.int = "gray",
-  ...
-)
+binnedplot(x ,y, nclass=NULL,
+          xlab="Expected Values", ylab="Average residual",
+          main="Binned residual plot",
+          cex.pts=0.8, col.pts=1, col.int="gray", ...)
 }
 \arguments{
 \item{x}{The expected values from the logistic regression.}

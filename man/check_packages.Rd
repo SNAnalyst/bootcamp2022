@@ -18,8 +18,8 @@ Checks whether a set of packages is present and of the correct version
 \details{
 Useful inside a learnr tutorial.
 
-\code{reqs} is a data.frame with column names "pkg", "version", "where". 
-All items are \code{character}! 
+\code{reqs} is a data.frame with column names "pkg", "version", "where".
+All items are \code{character}!
 
 \itemize{
 \item{pkg}{names of the packages}
@@ -27,21 +27,21 @@ All items are \code{character}!
 \item{where}{location of the package for download}
 }
 
-For \code{where} there are two options. If the package resides on CRAN, 
-it should be "CRAN". If it is on github, it should be "username/reponame" (ie. 
+For \code{where} there are two options. If the package resides on CRAN,
+it should be "CRAN". If it is on github, it should be "username/reponame" (ie.
 whatever would go inside \code{remotes::install_github(where)}).
 
-First, the function checks if a package is installed and, if installed, whether 
-it has the required version number or higher. 
+First, the function checks if a package is installed and, if installed, whether
+it has the required version number or higher.
 If eigher of these checks fail, it will attempt to download/upgrade the package.
 
-After a first pass along all packages (as described above), a second check is 
-performed if a package is now installed and, if installed, whether 
-it has the required version number or higher. 
+After a first pass along all packages (as described above), a second check is
+performed if a package is now installed and, if installed, whether
+it has the required version number or higher.
 
-If a package is still not installed, a message is returned that tells the user 
-how to install it manually. 
-If a package still does not at least have the required version, 
+If a package is still not installed, a message is returned that tells the user
+how to install it manually.
+If a package still does not at least have the required version,
 a message is returned that tells the user how to upgrade it manually.
 }
 \examples{
@@ -55,10 +55,10 @@ pkgs <- matrix(c(
 "networkD3", "0.4", "CRAN",
 "sna", "2.6", "CRAN",
 "SNA4DSData", "0.9.9000", "SNAnalyst/SNA4DSData"
-), byrow = TRUE, ncol = 3) |> 
-  as.data.frame() |> 
+), byrow = TRUE, ncol = 3) |>
+  as.data.frame() |>
   setNames(c("pkg", "version", "where"))
-  
+
 check_packages(pkgs)
 }
 }
