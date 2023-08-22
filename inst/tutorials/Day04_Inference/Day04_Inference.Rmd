@@ -292,7 +292,7 @@ It worked!
 
 The way we specified the test checks the two-sided option. 
 
-What can we say about the result? We have a p-value smaller than 2.2e-16. Therefore, the probability that the difference in mean we observe between the treatment and the control group is random is very, very small. So small that we can claim that there is evidence in favor of our hypothesis 1. 
+What can we say about the result? We have a p-value smaller than 2.2e-16. Therefore, the probability that the difference in mean we observe between the treatment and the control group is random is very, very small. So small that we can reject the null hypothesis h0. 
 
 The output also provides the confidence interval. We can read a confidence interval alternatively than a p-value. 
 We have -269.1029 and -229.7591. These two scores are both negative. A confidence interval shows a significant result when both scores are either both positive or both negative. If they have a different sign, they are considered not significant. 
@@ -405,6 +405,8 @@ summary(H1lm)
 
 The p-value is smaller than 2.2e-16. This is exactly the same result we got with the t-test! Waw! Since it is significant, we can move on to reading the estimate. According to the model, those CEOs who took the master's are 249.431 more likely than those who did not to have an increment in the number of clients! This is a fantastic result for the GSM School!
 
+If we use an OLS we cannot specify if the test needs to be one tailed or two tailed. However, we can interpret the sign of the coefficient. If the sign is positive, the treatment increases the effect on the outcome variable. If the sign is negative, it decreases. Since the sign is positive, we observe exactly the same result as the t-test, and we can come to the same conclusion. 
+
 Now we are happy and satisfied, right? No! Wait, we have more information! Are we absolutely sure that the higher average number of clients in the treatment group has to be attributed to the treatment? Well, no. We cannot possibly know. 
 
 Since we have control variables, we should include them in the model to ensure that they are not the real reason for which we observe this difference in mean. 
@@ -485,9 +487,7 @@ p
 predict(H1lm, newdata = p)
 ```
 
-We can already tell one perspective student that according to our model, their number of clients will be around.
-
-508 if they don't take the master, and around 757 if they do. 
+We can already tell one perspective student that according to our model, their number of clients will be around 508 if they don't take the master, and around 757 if they do. 
 
 Can we see that these numbers are exactly the mean of the control and the treatment group? 
 

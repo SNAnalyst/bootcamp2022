@@ -148,11 +148,13 @@ check_pkgs()
 
 ## Generalizing the linear model 
 
+The OLS you learned so far, cannot be used for all types of data.
+
 The predicted values of an OLS by definition can range from  
 
 $Real: \{ -\infty, +\infty \}$
 
-However, this cannot be possible if we consider outcome variables that are categorical, ordinal, count, or dichotomous. Therefore, only models with numeric outcome variables can produce predicted values in this range. 
+However, this would be incorrect if we consider outcome variables that are categorical, ordinal, count, or dichotomous. Only models with numeric outcome variables can produce predicted values in this range. 
 
 Also, OLS should have an error that is normally distributed around a mean of 0. This condition is not produced when the dependent variable is not numeric. 
 
@@ -252,13 +254,15 @@ summary(ToyModel)
 
 ```
 
-Our ToyModel (please, don't imagine a teddy bear on a catwalk!) has nothing statistically significant. We don't care! We just want to see how to specify it!
+Our ToyModel (please, imagine a teddy bear on a catwalk!) has nothing statistically significant. We don't care! We just want to see how to specify it!
 
 So, let's get to understand the bits and pieces. 
 
 DISCLAIMER
-If an exploratory data analysis is always a must, in the GLM is more than a must! It's like taking your dog out before going to bed. If you don't do it, 
-nothing will work in your house (since the dog will drive you crazy, and s/he would be right!)
+
+If an exploratory data analysis is always a must, in the GLM is more than a must! It's like taking your dog out before going to bed. 
+
+If you don't do it, nothing will work in your house (since the dog will drive you crazy, and s/he would be right!)
 In GLMs, if you don't know what kind of outcome variable you are using, you cannot even specify the model!
 
 1. 'formula' is specified in the same as `lm()`. Entirely.
@@ -424,6 +428,7 @@ Even if the data and our great mathematical and statistical skills allow us to f
 First, it would be called 'fishing' into the data since you try every combination until you fish something meaningful. 
 
 Second, questions 1 and 2 sound a little detached from reality. Why do data science skills make someone anxious (1)? Why should an anxious person be good at data science (2)? Unless we see other evidence, these make no sense. 
+
 ### Hence, once more: Your statistical analysis needs to be theoretically driven rather than data driven. 
 
 You need to use your theoretical knowledge to support your question with evidence, and you need to persuade your audience that your question makes sense. You also need to provide an attempted answer to your question, informed by the literature you read on the topic. That's a hypothesis. 
