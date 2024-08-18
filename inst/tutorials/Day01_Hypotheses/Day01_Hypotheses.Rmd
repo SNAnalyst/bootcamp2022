@@ -31,9 +31,9 @@ source("../R/helper_code.R")
 
 # Check whether required packages are installed
 pkgs <- matrix(c(
-  "learnr", "0.10.5", "CRAN",
-  "gradethis", "0.2.8.9000", "rstudio/gradethis",
-  "outliertree", "1.8.1-1", "CRAN"
+  "learnr", "0.11.5", "CRAN",
+  "gradethis", "0.2.14", "rstudio/gradethis",
+  "outliertree", "1.9.0", "CRAN"
 ), byrow = TRUE, ncol = 3) |> 
   as.data.frame() |> 
   setNames(c("pkg", "version", "where"))
@@ -44,11 +44,11 @@ check_pkgs <- function(.pkgs = pkgs) {
 
 
 check_RStudio <- function() {
-  bootcamp::check_rstudio_equal_or_larger("2023.6.1", verdict = TRUE)
+  bootcamp::check_rstudio_equal_or_larger("2024.04.2", verdict = TRUE)
 }
 
 check_R <- function() {
-  bootcamp::check_r_equal_or_larger("4.3.1", verdict = TRUE)
+  bootcamp::check_r_equal_or_larger("4.4.1", verdict = TRUE)
 }
 
 ```
@@ -153,7 +153,7 @@ modeling. Any good data scientist over the next decades will need to be
 multi-lingual: they need to master multiple languages. These will typically 
 include `r rproj()` and Python, and in the near future probably alsi Julia. 
 In addition, masting C++ also helps greatly. And Javascript. 
-If you go on to the labor market tryign to get a job as a data scientist and 
+If you go on to the labor market trying to get a job as a data scientist and 
 only know one of these languages well, you will be at a disadvantage to others 
 who did spend the effort to learn at least both `r rproj()` and Python. 
 
@@ -175,13 +175,13 @@ So, here are a few things to get you started.
 When you use a function from a package, prefix that package name to the function 
 you want to use. So, rather than typing
 
-```{r
+``` r
 betterpairs(amazon)
 ```
 
 you type:
 
-```{r
+``` r
 bootcamp::betterpairs(amazon)
 ```
 
@@ -193,7 +193,7 @@ as you will see in the next line of code below.
 Also, when a function produces output, you can save that output in a new variable 
 (in `r rproj()` this is called an *object*) using `<-`. For example:
 
-```{r
+``` r
 mod_2 <- lm(after_sales ~ before_sales + logo, data = amazon)
 ```
 
@@ -201,7 +201,7 @@ Finally, if you want to access something that is inside an object, you use `$`.
 So, one way of accessing the variable `logo` that is inside `amazon` is
 
 
-```{r
+``` r
 amazon$logo
 ```
 
