@@ -31,10 +31,10 @@ source("../R/helper_code.R")
 
 # Check whether required packages are installed
 pkgs <- matrix(c(
-  "data.table", "1.12.0", "CRAN",
-  "learnr", "0.10.0", "CRAN",
-  "gradethis", "0.2.3.9001", "rstudio/gradethis",
-  "outliertree", "1.7.4", "CRAN"
+  # "data.table", "1.12.0", "CRAN",
+  "learnr", "0.11.5", "CRAN",
+  "gradethis", "0.2.14", "rstudio/gradethis",
+  "outliertree", "1.9.0", "CRAN"
 ), byrow = TRUE, ncol = 3) |> 
   as.data.frame() |> 
   setNames(c("pkg", "version", "where"))
@@ -44,12 +44,11 @@ check_pkgs <- function(.pkgs = pkgs) {
 }
 
 check_RStudio <- function() {
-  bootcamp::check_rstudio_equal_or_larger("2023.6.1", verdict = TRUE)
+  bootcamp::check_rstudio_equal_or_larger("2024.04.2", verdict = TRUE)
 }
 
-# R check version (required 4.3.1)
 check_R <- function() {
-  bootcamp::check_r_equal_or_larger("4.3.1", verdict = TRUE)
+  bootcamp::check_r_equal_or_larger("4.4.1", verdict = TRUE)
 }
 ```
 
