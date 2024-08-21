@@ -985,7 +985,7 @@ gradethis::grade_code(correct = "Great job! ")
 
 
 
-### The Media and Elections data set
+### 2) The Media and Elections data set
 
 You have a data set that contains data about citizens, their political interest and how much they engage with media during election time.
 
@@ -1044,7 +1044,7 @@ You can run your model in the box below or work in Rstudio, loading the data wit
 ```
 
 
-### Bonus question
+### 3) Bonus question
 
 
 Can you manually estimate the predicted value for respondent 1312?
